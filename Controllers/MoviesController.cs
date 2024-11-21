@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 public class MoviesController : ControllerBase
 {
+    private readonly AppDbContext _context;
+
     // created the default data on our GET endpoint
     private static List<Movies> movies = new List<Movies> {
         new Movies {Id = 1, Title = "The Shawshank Redemption", Director = "Frank Darabont", ReleaseYear = 1994},
@@ -15,11 +17,23 @@ public class MoviesController : ControllerBase
         new Movies {Id = 6, Title = "Fight Club", Director = "David Fincher", ReleaseYear = 1999}
     };
 
+    public MoviesController(AppDbContext context)
+    {
+        _context = context;
+
+        // our database is currently empty, so we have to add our fields
+        if (!_context.Movies.Any())
+        {
+            _context.Movies.AddRange(movies);
+            _context.SaveChanges();
+        }
+    }
+
     // create the GET endpoint
     [HttpGet]
     public IEnumerable<Movies> Get()
     {
-        return movies;
+        return _context.Movies.ToList();
     }
     // create the POST endpoint
     [HttpPost]
@@ -29,7 +43,8 @@ public class MoviesController : ControllerBase
         {
             return BadRequest("Client error occured!");
         }
-        movies.Add(_movies);
+        _context.Add(_movies);
+        _context.SaveChanges();
         return CreatedAtAction(nameof(Post), new { id = _movies.Id, Title = _movies.Title, Director = _movies.Director, ReleaseYear = _movies.ReleaseYear }, _movies);
     }
 }

@@ -37,14 +37,20 @@
     },
     {
         "id": 7,
-        "title": "The Dark Knigth",
-        "director": "Christopher Nolan",
-        "releaseYear": 2008
-    },
-    {
-        "id": 8,
         "title": "One Flew Over The Cuckoo's Nest",
         "director": "Milos Forman",
         "releaseYear": 1975
+    },
+    {
+        "id": 8,
+        "title": "Howl's Moving Castle",
+        "director": "Hayao Miyazaki",
+        "releaseYear": 2004
+    },
+    {
+        "id": 9,
+        "title": "A Man Called Otto",
+        "director": "Marc Foster",
+        "releaseYear": 2022
     }
 ]

@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/tvshows")]
 public class TVShowsController : ControllerBase
 {
+    private readonly AppDbContext _context;
+
     // static assignment of our GET-endpoint data
     private static List<TVShows> _TVShows = new List<TVShows> {
         new TVShows {Id = 1, Title = "The Sopranos", Creators = "David Chase", ReleaseYear = 1999, NumberOfSeasons = 6},
@@ -17,11 +19,24 @@ public class TVShowsController : ControllerBase
         new TVShows {Id = 10, Title = "Jojo's Bizzare Adventure", Creators = "Hirohiko Araki", ReleaseYear = 2012, NumberOfSeasons = 5},
         new TVShows {Id = 11, Title = "The Walking Dead", Creators = "Frank Darabont", ReleaseYear = 2010, NumberOfSeasons = 11}
     };
+
+    public TVShowsController(AppDbContext context)
+    {
+        _context = context;
+
+        // add data to our database table for TVShows
+        if (!_context.TVShows.Any())
+        {
+            _context.TVShows.AddRange(_TVShows);
+            _context.SaveChanges();
+        }
+    }
+
     // defining our GET endpoint and returning out data
     [HttpGet]
     public IEnumerable<TVShows> Get()
     {
-        return _TVShows;
+        return _context.TVShows.ToList();
     }
 
     // defining our POST endpoint and having users write data to our model
@@ -32,7 +47,8 @@ public class TVShowsController : ControllerBase
         {
             return BadRequest("Client side error occured!");
         }
-        _TVShows.Add(tvShows);
+        _context.Add(tvShows);
+        _context.SaveChanges();
         return CreatedAtAction(nameof(Post), new { id = tvShows.Id, title = tvShows.Title, creators = tvShows.Creators, releaseYear = tvShows.ReleaseYear, numberOfSeasons = tvShows.NumberOfSeasons }, tvShows);
     }
 }
