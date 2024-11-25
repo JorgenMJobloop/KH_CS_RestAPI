@@ -45,6 +45,6 @@ public class MoviesController : ControllerBase
         }
         _context.Add(_movies);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(Post), new { id = _movies.Id, Title = _movies.Title, Director = _movies.Director, ReleaseYear = _movies.ReleaseYear }, _movies);
+        return CreatedAtAction(nameof(Post), new { id = _movies.Id, title = _movies.Title, Director = _movies.Director, ReleaseYear = _movies.ReleaseYear }, _movies);
     }
 }
