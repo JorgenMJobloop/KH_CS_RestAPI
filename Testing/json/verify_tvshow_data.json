@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "title": "The Sopranos",
+        "creators": "David Chase",
+        "releaseYear": 1999,
+        "numberOfSeasons": 6
+    },
+    {
+        "id": 2,
+        "title": "Breaking Bad",
+        "creators": "Vince Gilligan",
+        "releaseYear": 2008,
+        "numberOfSeasons": 5
+    },
+    {
+        "id": 3,
+        "title": "Game Of Thrones",
+        "creators": "David Benioff & D.B Weiss",
+        "releaseYear": 2011,
+        "numberOfSeasons": 8
+    },
+    {
+        "id": 4,
+        "title": "Twin Peaks",
+        "creators": "David Lynch & Mark Frost",
+        "releaseYear": 1990,
+        "numberOfSeasons": 2
+    },
+    {
+        "id": 5,
+        "title": "The Wire",
+        "creators": "David Simon",
+        "releaseYear": 2002,
+        "numberOfSeasons": 5
+    },
+    {
+        "id": 6,
+        "title": "Arcane",
+        "creators": "Christian Linke and Alex Yee",
+        "releaseYear": 2021,
+        "numberOfSeasons": 2
+    },
+    {
+        "id": 7,
+        "title": "Brooklyn 99",
+        "creators": "Dan Goor & Michael Schur",
+        "releaseYear": 2013,
+        "numberOfSeasons": 8
+    },
+    {
+        "id": 8,
+        "title": "Hotel Cæsar",
+        "creators": "Peter Emanuel Falck & Christian Wikander",
+        "releaseYear": 1998,
+        "numberOfSeasons": 34
+    },
+    {
+        "id": 9,
+        "title": "Neon Genesis Evangelion",
+        "creators": "Hideaki Ano",
+        "releaseYear": 1995,
+        "numberOfSeasons": 1
+    },
+    {
+        "id": 10,
+        "title": "Jojo's Bizzare Adventure",
+        "creators": "Hirohiko Araki",
+        "releaseYear": 2012,
+        "numberOfSeasons": 5
+    },
+    {
+        "id": 11,
+        "title": "The Walking Dead",
+        "creators": "Frank Darabont",
+        "releaseYear": 2010,
+        "numberOfSeasons": 11
+    },
+    {
+        "id": 12,
+        "title": "Band Of Brothers",
+        "creators": "Steven Spielberg & Tom Hanks",
+        "releaseYear": 2001,
+        "numberOfSeasons": 1
+    }
+]
