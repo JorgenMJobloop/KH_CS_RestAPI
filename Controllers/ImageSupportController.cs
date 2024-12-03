@@ -8,7 +8,8 @@ public class ImageSupportController : ControllerBase
 
     public static List<ImageSupport> imageSupport = new List<ImageSupport>() {
         new ImageSupport {Id = 1, ImageUrl = "/images/sopranos.png"},
-        new ImageSupport {Id = 2, ImageUrl = "/images/wire.png"}
+        new ImageSupport {Id = 2, ImageUrl = "/images/wire.png"},
+        new ImageSupport {Id = 3, ImageUrl = "localhost:5045/images/twin_peaks.png"}
     };
     /// <summary>
     /// Part of the test library, used to test static file-serving on the RestAPI
@@ -23,13 +24,6 @@ public class ImageSupportController : ControllerBase
             _context.TestImageSupport.AddRange(imageSupport);
             _context.SaveChanges();
         }
-    }
-
-    //TODO: 
-    public void MockData()
-    {
-        imageSupport.Add(new ImageSupport { Id = 3, ImageUrl = "/images/" });
-        _context.TestImageSupport.AddRange(imageSupport);
     }
 
     [HttpGet]

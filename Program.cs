@@ -15,7 +15,16 @@ public class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+        // Below is test code on lines 21 to 27, do not publish these to production!
+        // CORS user-spesifications, this is done to support CORS on Localhost on the same server when testing the monorepos Frontend, as ASP.NET by default disallows same-site origin fetch requests from the frontend.
+        // See the comments above, and do not push this code to production!
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().WithExposedHeaders("Count-Disposition");
+            });
+        });
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -28,6 +37,8 @@ public class Program
         app.UseDefaultFiles();
 
         app.UseStaticFiles();
+
+        app.UseCors("AllowAll");
 
         app.UseHttpsRedirection();
 

@@ -19,6 +19,10 @@ public class AppDbContext : DbContext
     /// Mock class used for testing purposes, not a part of production
     /// </summary>
     public DbSet<ImageSupport> TestImageSupport { get; set; }
+    /// <summary>
+    /// Mock user table
+    /// </summary>
+    public DbSet<MockUsers> TestModel { get; set; }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
