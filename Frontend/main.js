@@ -7,11 +7,12 @@ async function GetImages(url) {
     return data;
 }
 
-imageURL.src = "http://localhost:5045/images/wire.png";
+// imageURL.src = "http://localhost:5045/images/wire.png";
 
 GetImages("http://localhost:5045/api/testing/imagesupport").then(data => {
     console.log(data);
     data.map((value, index) => {
         console.log(value.ImageUrl);
+        imageURL.src = value.imageUrl;
     })
 })

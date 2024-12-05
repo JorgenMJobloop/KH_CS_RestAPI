@@ -14,7 +14,7 @@ public class MoviesController : ControllerBase
         new Movies {Id = 3, Title = "Schindlers List", Director = "Steven Spielberg", ReleaseYear = 1993},
         new Movies {Id = 4, Title = "Pulp Fiction", Director = "Quentin Tarantino", ReleaseYear = 1994},
         new Movies {Id = 5, Title = "The Good, The Bad and The Ugly", Director = "Sergio Leone", ReleaseYear = 1966},
-        new Movies {Id = 6, Title = "Fight Club", Director = "David Fincher", ReleaseYear = 1999}
+        new Movies {Id = 6, Title = "Fight Club", Director = "David Fincher", ReleaseYear = 1999, ImageUrl = "http://localhost:5045/images/fight_club.jpg"}
     };
 
     public MoviesController(AppDbContext context)
